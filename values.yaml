@@ -22,10 +22,12 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name:
 
-podSecurityContext: {}
+podSecurityContext:
+  {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  {}
   # privileged: true
   # capabilities:
   #   drop:
@@ -51,10 +53,12 @@ probes:
     failureThreshold: 30
     periodSeconds: 10
 
-
 ingress:
   enabled: false
-  annotations: {}
+  ## ingress.ingressClassName -- Support for ingress class name that was introduced in kubernetes 1.19
+  ingressClassName:
+  annotations:
+    {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
@@ -64,7 +68,8 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-resources: {}
+resources:
+  {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -88,23 +93,24 @@ deploymentAnnotations: {}
 
 registration:
   id: irc
-  hs_token: ''
-  as_token: ''
+  hs_token: ""
+  as_token: ""
   namespaces:
     users: []
-      #- exclusive: true
-      #  regex: '@irc_.*:yourhomeserverdomain'
-    aliases: []
+    #- exclusive: true
+    #  regex: '@irc_.*:yourhomeserverdomain'
+    aliases:
+      []
       #- exclusive: true
       #  regex: '#irc_.*:yourhomeserverdomain'
-  url: 'http://localhost:9999'
+  url: "http://localhost:9999"
   sender_localpart: appservice-irc
   rate_limited: false
   protocols:
     - irc
 
 # openssl genpkey -out - -outform PEM -algorithm RSA -pkeyopt rsa_keygen_bits:2048
-passkey: 
+passkey:
 
 config:
   # Configuration specific to AS registration. Unless other marked, all fields
@@ -144,7 +150,6 @@ config:
     # Which port should the appservice bind to. Takes priority over the one provided in the
     # command line! Optional.
     # bindPort: 9999
-
     # Use this option to force the appservice to listen on another hostname for transactions.
     # This is NOT your synapse hostname. E.g. use 127.0.0.1 to only listen locally. Optional.
     # bindHostname: 0.0.0.0
@@ -292,7 +297,7 @@ config:
   database:
     # database engine (must be 'postgres' or 'nedb'). Default: nedb
     engine: "postgres"
-     # Either a PostgreSQL connection string, or a path to the NeDB storage directory.
-     # For postgres, it must start with postgres://
-     # For NeDB, it must start with nedb://. The path is relative to the project directory.
+    # Either a PostgreSQL connection string, or a path to the NeDB storage directory.
+    # For postgres, it must start with postgres://
+    # For NeDB, it must start with nedb://. The path is relative to the project directory.
     connectionString: "postgres://username:password@host:port/databasename"
