@@ -1,7 +1,7 @@
 apiVersion: v2
 type: application
-appVersion: "0.32.0"
-version: 0.1.17
+appVersion: "0.32.1"
+version: 0.1.18
 name: matrix-appservice-irc
 description: Matrix <--> IRC Bridge
 keywords:
@@ -19,8 +19,8 @@ maintainers:
     email: helm@gavinmogan.com
 annotations:
   artifacthub.io/changes: |
-    - Updated to 0.32.0
+    - Updated to 0.32.1
   artifacthub.io/containsSecurityUpdates: "false"
   artifacthub.io/images: |
     - name: matrix-appservice-irc
-      image: matrixdotorg/matrix-appservice-irc:release-0.32.0
+      image: matrixdotorg/matrix-appservice-irc:release-0.32.1
