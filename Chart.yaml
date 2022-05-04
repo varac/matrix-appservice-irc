@@ -1,7 +1,7 @@
 apiVersion: v2
 type: application
-appVersion: "0.32.1"
-version: 0.1.18
+appVersion: "0.34.0"
+version: 0.1.19
 name: matrix-appservice-irc
 description: Matrix <--> IRC Bridge
 keywords:
@@ -17,10 +17,14 @@ sources:
 maintainers:
   - name: Gavin Mogan
     email: helm@gavinmogan.com
+  - name: varac
+    email: varac@varac.net
 annotations:
   artifacthub.io/changes: |
-    - Updated to 0.32.1
-  artifacthub.io/containsSecurityUpdates: "false"
+    - 0.34.0 security release for matrix-appservice-irc (High severity)
+      See https://matrix.org/blog/2022/05/04/0-34-0-security-release-for-matrix-appservice-irc-high-severity
+  artifacthub.io/containsSecurityUpdates: "true"
+  # https://hub.docker.com/r/matrixdotorg/matrix-appservice-irc/tags
   artifacthub.io/images: |
     - name: matrix-appservice-irc
-      image: matrixdotorg/matrix-appservice-irc:release-0.32.1
+      image: matrixdotorg/matrix-appservice-irc:release-0.34.0
